@@ -32,10 +32,16 @@ namespace PasswordGenerator
         private void GenerateButton_Click(object sender, RoutedEventArgs e)
         {
             letters.Clear();
+            char nextChar;
             password = ((char)rnd.Next(65, 91)).ToString();
             for (int i = 0; i < 11; i++)
             {
-                password += ((char)rnd.Next(97,123)).ToString();
+                nextChar = ((char)rnd.Next(97, 123));
+                while (nextChar == password[i])
+                {
+                    nextChar = ((char)rnd.Next(97, 123));
+                }
+                password += nextChar.ToString();
             }
             password += "1!";
             passwordBox.Text = password;
@@ -122,7 +128,7 @@ namespace PasswordGenerator
             string result = letter.ToUpper();
             result += " for ";
             result += baseLetters[letter.ToLower()[0]];
-            result += " or ";
+            result += " - or ";
             result += alternateLetters[letter.ToLower()[0]];
             return result;
         }
