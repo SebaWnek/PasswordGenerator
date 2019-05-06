@@ -32,16 +32,16 @@ namespace PasswordGenerator
         private void GenerateButton_Click(object sender, RoutedEventArgs e)
         {
             letters.Clear();
-            char nextChar;
+            string nextChar;
             password = ((char)rnd.Next(65, 91)).ToString();
             for (int i = 0; i < 11; i++)
             {
-                nextChar = ((char)rnd.Next(97, 123));
-                while (nextChar == password[i])
+                nextChar = ((char)rnd.Next(97, 123)).ToString();
+                while (nextChar == password[i].ToString().ToLower())
                 {
-                    nextChar = ((char)rnd.Next(97, 123));
+                    nextChar = ((char)rnd.Next(97, 123)).ToString();
                 }
-                password += nextChar.ToString();
+                password += nextChar;
             }
             password += "1!";
             passwordBox.Text = password;
@@ -51,6 +51,11 @@ namespace PasswordGenerator
 
         private void CopyButton_Click(object sender, RoutedEventArgs e)
         {
+            if(passwordBox.Text.Length != 14)
+            {
+                System.Windows.MessageBox.Show("First generate password!");
+                return;
+            }
             Clipboard.SetText(password);
         }
 
