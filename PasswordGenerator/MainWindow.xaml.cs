@@ -47,6 +47,8 @@ namespace PasswordGenerator
             passwordBox.Text = password;
             letters = password.ToList();
             listBox1.ItemsSource = letters;
+            listBox1.SelectedIndex = 0;
+            listBox1.Focus();
         }
 
         private void CopyButton_Click(object sender, RoutedEventArgs e)
@@ -59,6 +61,23 @@ namespace PasswordGenerator
             Clipboard.SetText(password);
         }
 
+        private void UpButton_Click(object sender, RoutedEventArgs e)
+        {
+            listBox1.Focus();
+            if (listBox1.SelectedIndex > 0)
+            {
+                listBox1.SelectedIndex--;
+            }
+        }
+
+        private void DownButton_Click(object sender, RoutedEventArgs e)
+        {
+            listBox1.Focus();
+            if (listBox1.SelectedIndex < listBox1.Items.Count - 1)
+            {
+                listBox1.SelectedIndex++;
+            }
+        }
     }
 
     internal static class PassLetter

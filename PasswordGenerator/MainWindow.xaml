@@ -29,14 +29,37 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="GenerateButton" Content="Generate" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Click="GenerateButton_Click" Grid.Column="1" Grid.Row="1" Foreground="White" FontSize="36" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="70" Width="199">
-        <Button.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FF363636" Offset="0"/>
-                <GradientStop Color="Black" Offset="1"/>
-            </LinearGradientBrush>
-        </Button.Background>
-        </Button>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button x:Name="GenerateButton" Content="Generate" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Click="GenerateButton_Click" Grid.Column="0" Grid.Row="0" Foreground="White" FontSize="36" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="70" Width="199">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF363636" Offset="0"/>
+                        <GradientStop Color="Black" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="UpButton" Focusable="False" Content="↑" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Click="UpButton_Click" Grid.Column="0" Grid.Row="1" Foreground="White" FontSize="36" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="70" Width="199">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF363636" Offset="0"/>
+                        <GradientStop Color="Black" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="DownButton" Focusable="False" Content="↓" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Click="DownButton_Click"  Grid.Column="0" Grid.Row="2" Foreground="White" FontSize="36" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="70" Width="199">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF363636" Offset="0"/>
+                        <GradientStop Color="Black" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </Grid>
         <TextBox x:Name="passwordBox" Margin="10" TextWrapping="Wrap" Text="Here be passwords" IsReadOnly="true" Background="#FF444444" Foreground="White" FontSize="48"/>
         <ListBox x:Name="listBox1" Margin="10" Grid.Row="1" Background="#FF444444" Foreground="White" FontSize="24"/>
 
